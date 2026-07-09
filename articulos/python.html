@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Programación en Python
+    </title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <p class="filepath">cat articulos/python.html</p>
+
+    <h1>
+        Programación en Python:
+        Fundamentos del Lenguaje
+    </h1>
+
+    <p>
+        Apuntes de estudio sobre los conceptos básicos
+        de Python, con ejemplos sencillos para cada tema.
+    </p>
+
+</header>
+
+<nav>
+
+    <ul>
+
+        <li><a href="#indice">Índice</a></li>
+
+        <li><a href="#basicos">Fundamentos</a></li>
+
+        <li><a href="#control">Estructuras de Control</a></li>
+
+        <li><a href="#colecciones">Colecciones</a></li>
+
+        <li><a href="#poo">POO</a></li>
+
+    </ul>
+
+</nav>
+
+<main class="container">
+
+<section class="card" id="indice">
+
+<h2>Índice</h2>
+
+<ol>
+
+<li>¿Qué es Python?</li>
+
+<li>Variables y Tipos de Datos</li>
+
+<li>Operadores</li>
+
+<li>Condicionales</li>
+
+<li>Bucles</li>
+
+<li>Funciones</li>
+
+<li>Listas y Tuplas</li>
+
+<li>Diccionarios y Conjuntos</li>
+
+<li>Archivos</li>
+
+<li>Excepciones</li>
+
+<li>Programación Orientada a Objetos</li>
+
+<li>Dato Interesante</li>
+
+<li>Referencias</li>
+
+</ol>
+
+</section>
+
+<section class="card" id="basicos">
+
+<h2>
+¿Qué es Python?
+</h2>
+
+<p>
+
+Python es un lenguaje de programación de alto nivel,
+interpretado y de sintaxis sencilla, muy utilizado en
+automatización, análisis de datos, desarrollo web e
+inteligencia artificial. Su legibilidad lo convierte
+en una excelente opción para aprender a programar.
+
+</p>
+
+<h2>
+Variables y Tipos de Datos
+</h2>
+
+<p>
+
+Una variable es un espacio en memoria donde se
+almacena un valor que puede cambiar durante la
+ejecución del programa. En Python no es necesario
+declarar el tipo de dato de forma explícita.
+
+</p>
+
+<h3>
+Tipos de datos básicos
+</h3>
+
+<ul>
+
+<li><strong>int:</strong> números enteros.</li>
+
+<li><strong>float:</strong> números decimales.</li>
+
+<li><strong>str:</strong> cadenas de texto.</li>
+
+<li><strong>bool:</strong> valores verdadero o falso.</li>
+
+</ul>
+
+<pre>
+nombre = "Joseph"
+edad = 20
+promedio = 15.5
+es_estudiante = True
+
+print(nombre, edad, promedio, es_estudiante)
+</pre>
+
+<h2>
+Operadores
+</h2>
+
+<h3>
+Operadores aritméticos
+</h3>
+
+<pre>
+a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a % b)
+</pre>
+
+<h3>
+Operadores de comparación
+</h3>
+
+<pre>
+print(a > b)
+print(a == b)
+print(a != b)
+</pre>
+
+</section>
+
+<section class="card" id="control">
+
+<h2>
+Condicionales
+</h2>
+
+<p>
+
+Permiten que el programa tome decisiones y ejecute
+distintas acciones según se cumpla o no una
+condición.
+
+</p>
+
+<pre>
+nota = 14
+
+if nota >= 11:
+    print("Aprobado")
+else:
+    print("Desaprobado")
+</pre>
+
+<h2>
+Bucles
+</h2>
+
+<p>
+
+Permiten repetir un conjunto de instrucciones varias
+veces.
+
+</p>
+
+<h3>
+Bucle for
+</h3>
+
+<pre>
+for numero in range(1, 6):
+    print("Número:", numero)
+</pre>
+
+<h3>
+Bucle while
+</h3>
+
+<pre>
+contador = 0
+
+while contador < 3:
+    print("Contador:", contador)
+    contador += 1
+</pre>
+
+<h2>
+Funciones
+</h2>
+
+<p>
+
+Una función es un bloque de código reutilizable que
+realiza una tarea específica y puede recibir datos de
+entrada y devolver un resultado.
+
+</p>
+
+<pre>
+def sumar(a, b):
+    return a + b
+
+resultado = sumar(4, 7)
+print("Resultado:", resultado)
+</pre>
+
+</section>
+
+<section class="card" id="colecciones">
+
+<h2>
+Listas y Tuplas
+</h2>
+
+<h3>
+Listas
+</h3>
+
+<p>
+
+Colecciones ordenadas y modificables de elementos.
+
+</p>
+
+<pre>
+frutas = ["manzana", "pera", "uva"]
+frutas.append("naranja")
+
+print(frutas)
+</pre>
+
+<h3>
+Tuplas
+</h3>
+
+<p>
+
+Colecciones ordenadas, pero a diferencia de las
+listas, no se pueden modificar una vez creadas.
+
+</p>
+
+<pre>
+coordenadas = (10, 20)
+
+print(coordenadas)
+</pre>
+
+<h2>
+Diccionarios y Conjuntos
+</h2>
+
+<h3>
+Diccionarios
+</h3>
+
+<p>
+
+Almacenan información en pares de clave y valor.
+
+</p>
+
+<pre>
+estudiante = {
+    "nombre": "Joseph",
+    "edad": 20
+}
+
+print(estudiante["nombre"])
+</pre>
+
+<h3>
+Conjuntos
+</h3>
+
+<p>
+
+Colecciones que no permiten elementos repetidos.
+
+</p>
+
+<pre>
+numeros = {1, 2, 2, 3, 3, 3}
+
+print(numeros)
+</pre>
+
+<h2>
+Archivos
+</h2>
+
+<p>
+
+Python permite leer y escribir archivos de texto
+para almacenar información de forma permanente.
+
+</p>
+
+<pre>
+with open("notas.txt", "w") as archivo:
+    archivo.write("Apuntes de Python")
+
+with open("notas.txt", "r") as archivo:
+    print(archivo.read())
+</pre>
+
+<h2>
+Excepciones
+</h2>
+
+<p>
+
+Permiten manejar errores que ocurren durante la
+ejecución del programa, evitando que este se detenga
+de forma inesperada.
+
+</p>
+
+<pre>
+try:
+    resultado = 10 / 0
+except ZeroDivisionError:
+    print("No se puede dividir entre cero")
+</pre>
+
+</section>
+
+<section class="card" id="poo">
+
+<h2>
+Programación Orientada a Objetos
+</h2>
+
+<p>
+
+La Programación Orientada a Objetos (POO) organiza el
+código en clases y objetos, que representan entidades
+con atributos (datos) y métodos (comportamientos).
+
+</p>
+
+<pre>
+class Estudiante:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def saludar(self):
+        print(f"Hola, soy {self.nombre}")
+
+alumno = Estudiante("Joseph", 20)
+alumno.saludar()
+</pre>
+
+<p>
+
+Este paradigma facilita organizar programas más
+grandes, agrupando datos y comportamientos
+relacionados dentro de una misma estructura.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Dato Interesante
+</h2>
+
+<p>
+
+El nombre "Python" no proviene de la serpiente, sino
+del grupo de comedia británico Monty Python. Su
+creador, Guido van Rossum, era fan del programa y
+buscaba un nombre corto y memorable para el lenguaje.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Referencias
+</h2>
+
+<ul>
+
+<li>
+
+Joyanes Aguilar, L. (2020).
+<em>
+Fundamentos de programación: Algoritmos,
+estructura de datos y objetos
+</em>
+(5.ª ed.). McGraw-Hill.
+
+</li>
+
+<li>
+
+Documentación oficial de Python:
+<em>
+docs.python.org
+</em>
+
+</li>
+
+</ul>
+
+</section>
+
+<section class="card" style="text-align:center;">
+
+<h2>
+Fin del Artículo
+</h2>
+
+<p>
+
+Gracias por leer este artículo sobre programación
+en Python.
+
+</p>
+
+<a href="../index.html">
+
+<button>
+Volver al Inicio
+</button>
+
+</a>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+© 2026 Joseph Torres Condezo
+</p>
+
+<p>
+Blog Personal de Tecnología, Programación y Ciberseguridad
+</p>
+
+</footer>
+
+</body>
+</html>

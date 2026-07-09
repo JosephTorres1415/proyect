@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Introducción a las Computadoras
+    </title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <p class="filepath">cat articulos/computadoras.html</p>
+
+    <h1>
+        Introducción a las Computadoras:
+        Hardware, Software y Fundamentos
+        de la Arquitectura de Von Neumann
+    </h1>
+
+    <p>
+        Apuntes de estudio sobre los conceptos básicos
+        de las computadoras y su funcionamiento interno.
+    </p>
+
+</header>
+
+<nav>
+
+    <ul>
+
+        <li><a href="#indice">Índice</a></li>
+
+        <li><a href="#que-es">¿Qué es?</a></li>
+
+        <li><a href="#cpu">CPU</a></li>
+
+        <li><a href="#memoria">Memoria</a></li>
+
+        <li><a href="#python">Python</a></li>
+
+    </ul>
+
+</nav>
+
+<main class="container">
+
+<section class="card" id="indice">
+
+<h2>Índice</h2>
+
+<ol>
+
+<li>¿Qué es una computadora?</li>
+
+<li>Hardware y Software</li>
+
+<li>Arquitectura de Von Neumann</li>
+
+<li>La CPU</li>
+
+<li>Memoria RAM, ROM y Caché</li>
+
+<li>Dispositivos de Entrada y Salida</li>
+
+<li>Almacenamiento</li>
+
+<li>Bits, Bytes y Sistemas de Numeración</li>
+
+<li>Representación de Texto, Imágenes y Sonido</li>
+
+<li>Redes, Internet y la World Wide Web</li>
+
+<li>Ejemplos en Python</li>
+
+<li>Dato Interesante</li>
+
+<li>Referencias</li>
+
+</ol>
+
+</section>
+
+<section class="card" id="que-es">
+
+<h2>
+¿Qué es una Computadora?
+</h2>
+
+<p>
+
+Una computadora es una máquina capaz de recibir datos,
+procesarlos siguiendo un conjunto de instrucciones y
+producir un resultado. Este proceso se resume en tres
+pasos básicos: entrada, procesamiento y salida.
+
+</p>
+
+<p>
+
+Según Joyanes Aguilar (2020), una computadora está
+formada por dos grandes componentes que trabajan de
+forma conjunta: el hardware y el software.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Hardware y Software
+</h2>
+
+<h3>
+Hardware
+</h3>
+
+<p>
+
+Es la parte física de la computadora, es decir, todos
+los componentes que se pueden tocar: el procesador,
+la memoria, el teclado, el monitor, entre otros.
+
+</p>
+
+<h3>
+Software
+</h3>
+
+<p>
+
+Es el conjunto de programas e instrucciones que le
+indican al hardware qué hacer. Se divide principalmente
+en dos tipos:
+
+</p>
+
+<ul>
+
+<li>Software de sistema (por ejemplo, el sistema operativo).</li>
+
+<li>Software de aplicación (programas que usa el usuario final).</li>
+
+</ul>
+
+</section>
+
+<section class="card">
+
+<h2>
+Arquitectura de Von Neumann
+</h2>
+
+<p>
+
+La mayoría de las computadoras actuales siguen un
+modelo propuesto por John Von Neumann, en el cual
+tanto los datos como las instrucciones se almacenan
+en la misma memoria.
+
+</p>
+
+<h3>
+Componentes principales
+</h3>
+
+<ul>
+
+<li>Unidad Central de Procesamiento (CPU).</li>
+
+<li>Memoria principal.</li>
+
+<li>Dispositivos de entrada y salida.</li>
+
+<li>Buses de comunicación.</li>
+
+</ul>
+
+<p>
+
+Este modelo permite que un mismo programa pueda ser
+modificado en memoria, lo que hace que las computadoras
+sean máquinas flexibles y programables.
+
+</p>
+
+</section>
+
+<section class="card" id="cpu">
+
+<h2>
+La CPU
+</h2>
+
+<p>
+
+La CPU (Unidad Central de Procesamiento) es el
+componente encargado de ejecutar las instrucciones
+de los programas. Se le suele llamar el "cerebro"
+de la computadora.
+
+</p>
+
+<h3>
+Unidad de Control
+</h3>
+
+<p>
+
+Se encarga de dirigir el funcionamiento de la CPU,
+indicando qué instrucción debe ejecutarse y en qué
+momento.
+
+</p>
+
+<h3>
+Unidad Aritmética y Lógica (ALU)
+</h3>
+
+<p>
+
+Es la parte de la CPU responsable de realizar
+operaciones matemáticas (sumas, restas, etc.) y
+operaciones lógicas (comparaciones, condiciones).
+
+</p>
+
+</section>
+
+<section class="card" id="memoria">
+
+<h2>
+Memoria RAM, ROM y Caché
+</h2>
+
+<h3>
+Memoria RAM
+</h3>
+
+<p>
+
+Es la memoria principal donde se almacenan
+temporalmente los datos y programas que la CPU
+está utilizando en un momento dado. Se borra al
+apagar el equipo.
+
+</p>
+
+<h3>
+Memoria ROM
+</h3>
+
+<p>
+
+Es una memoria de solo lectura que contiene
+instrucciones básicas necesarias para el arranque
+de la computadora. No se borra al apagar el equipo.
+
+</p>
+
+<h3>
+Memoria Caché
+</h3>
+
+<p>
+
+Es una memoria muy rápida y de menor tamaño,
+ubicada entre la CPU y la RAM, cuyo objetivo es
+acelerar el acceso a los datos usados con mayor
+frecuencia.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Dispositivos de Entrada y Salida
+</h2>
+
+<h3>
+Dispositivos de Entrada
+</h3>
+
+<p>
+
+Permiten ingresar información a la computadora.
+Ejemplos: teclado, mouse, escáner, micrófono.
+
+</p>
+
+<h3>
+Dispositivos de Salida
+</h3>
+
+<p>
+
+Permiten mostrar o entregar el resultado del
+procesamiento. Ejemplos: monitor, impresora,
+altavoces.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Almacenamiento
+</h2>
+
+<p>
+
+A diferencia de la RAM, los dispositivos de
+almacenamiento guardan la información de forma
+permanente, incluso cuando la computadora se apaga.
+
+</p>
+
+<ul>
+
+<li>Discos duros (HDD).</li>
+
+<li>Unidades de estado sólido (SSD).</li>
+
+<li>Memorias USB.</li>
+
+<li>Almacenamiento en la nube.</li>
+
+</ul>
+
+</section>
+
+<section class="card">
+
+<h2>
+Bits, Bytes y Sistemas de Numeración
+</h2>
+
+<p>
+
+La computadora representa toda la información
+internamente utilizando únicamente dos valores:
+0 y 1. A cada uno de estos valores se le llama
+<strong>bit</strong>.
+
+</p>
+
+<p>
+
+Un conjunto de 8 bits forma un <strong>byte</strong>,
+la unidad básica utilizada para medir la cantidad
+de información.
+
+</p>
+
+<h3>
+Sistemas de numeración
+</h3>
+
+<ul>
+
+<li>Binario (base 2): utilizado internamente por la computadora.</li>
+
+<li>Decimal (base 10): el sistema que usamos habitualmente.</li>
+
+<li>Hexadecimal (base 16): utilizado frecuentemente en programación
+y para representar direcciones de memoria.</li>
+
+</ul>
+
+</section>
+
+<section class="card">
+
+<h2>
+Representación de Texto, Imágenes y Sonido
+</h2>
+
+<h3>
+Texto
+</h3>
+
+<p>
+
+Cada carácter (letras, números, símbolos) se
+representa mediante un código numérico, como el
+estándar ASCII o Unicode.
+
+</p>
+
+<h3>
+Imágenes
+</h3>
+
+<p>
+
+Una imagen digital está formada por una matriz de
+puntos llamados píxeles, donde cada uno almacena
+información sobre su color.
+
+</p>
+
+<h3>
+Sonido
+</h3>
+
+<p>
+
+El sonido, al ser una señal analógica, se convierte
+a valores digitales mediante un proceso llamado
+muestreo, para que pueda ser almacenado y
+reproducido por la computadora.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Redes, Internet y la World Wide Web
+</h2>
+
+<h3>
+Redes
+</h3>
+
+<p>
+
+Una red es un conjunto de computadoras conectadas
+entre sí con el objetivo de compartir información
+y recursos.
+
+</p>
+
+<h3>
+Internet
+</h3>
+
+<p>
+
+Internet es una red global que conecta millones de
+redes y dispositivos alrededor del mundo, permitiendo
+el intercambio de información.
+
+</p>
+
+<h3>
+Modelo Cliente-Servidor
+</h3>
+
+<p>
+
+Es un modelo en el que un cliente (por ejemplo, un
+navegador) solicita información, y un servidor
+responde a esa solicitud entregando los datos
+requeridos.
+
+</p>
+
+<h3>
+World Wide Web (WWW)
+</h3>
+
+<p>
+
+Es un sistema de documentos interconectados
+mediante hipervínculos, accesibles a través de
+Internet utilizando un navegador web.
+
+</p>
+
+</section>
+
+<section class="card" id="python">
+
+<h2>
+Ejemplos en Python
+</h2>
+
+<p>
+
+A continuación se muestran algunos ejemplos
+sencillos relacionados con los conceptos vistos
+en este artículo.
+
+</p>
+
+<h3>
+Mostrar información básica del sistema
+</h3>
+
+<pre>
+import platform
+
+print("Sistema operativo:", platform.system())
+print("Versión:", platform.version())
+print("Arquitectura:", platform.machine())
+</pre>
+
+<p>
+
+Este ejemplo permite obtener información básica
+sobre el sistema operativo y la arquitectura del
+equipo donde se ejecuta el programa.
+
+</p>
+
+<h3>
+Leer un archivo de texto
+</h3>
+
+<pre>
+with open("ejemplo.txt", "r") as archivo:
+    contenido = archivo.read()
+
+print(contenido)
+</pre>
+
+<p>
+
+Muestra cómo un programa puede acceder al
+almacenamiento para leer datos guardados de
+forma permanente.
+
+</p>
+
+<h3>
+Trabajar con memoria mediante variables
+</h3>
+
+<pre>
+dato = 10
+print("Valor almacenado en memoria:", dato)
+
+dato = dato + 5
+print("Nuevo valor almacenado en memoria:", dato)
+</pre>
+
+<p>
+
+Las variables representan espacios de memoria
+donde un programa guarda y modifica información
+mientras se ejecuta.
+
+</p>
+
+<h3>
+Conversión entre unidades (bytes a kilobytes)
+</h3>
+
+<pre>
+bytes_totales = 5000
+
+kilobytes = bytes_totales / 1024
+
+print("Bytes:", bytes_totales)
+print("Kilobytes:", kilobytes)
+</pre>
+
+<p>
+
+Permite comprender cómo se relacionan las
+distintas unidades utilizadas para medir el
+almacenamiento y la memoria.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Dato Interesante
+</h2>
+
+<p>
+
+La primera computadora electrónica de propósito
+general, conocida como ENIAC, ocupaba una habitación
+completa y pesaba cerca de 27 toneladas. Hoy en día,
+un simple teléfono celular tiene mucha más capacidad
+de procesamiento que aquella máquina.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Referencias
+</h2>
+
+<ul>
+
+<li>
+
+Joyanes Aguilar, L. (2020).
+<em>
+Fundamentos de programación: Algoritmos,
+estructura de datos y objetos
+</em>
+(5.ª ed.). McGraw-Hill.
+
+</li>
+
+</ul>
+
+</section>
+
+<section class="card" style="text-align:center;">
+
+<h2>
+Fin del Artículo
+</h2>
+
+<p>
+
+Gracias por leer este artículo introductorio
+sobre computadoras.
+
+</p>
+
+<a href="../index.html">
+
+<button>
+Volver al Inicio
+</button>
+
+</a>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+© 2026 Joseph Torres Condezo
+</p>
+
+<p>
+Blog Personal de Tecnología, Programación y Ciberseguridad
+</p>
+
+</footer>
+
+</body>
+</html>

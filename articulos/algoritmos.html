@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Algoritmos
+    </title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <p class="filepath">cat articulos/algoritmos.html</p>
+
+    <h1>
+        Algoritmos:
+        Fundamentos, Pseudocódigo
+        y Diagramas de Flujo
+    </h1>
+
+    <p>
+        Apuntes de estudio sobre qué es un algoritmo,
+        cómo se representa y cómo se mide su eficiencia.
+    </p>
+
+</header>
+
+<nav>
+
+    <ul>
+
+        <li><a href="#indice">Índice</a></li>
+
+        <li><a href="#que-es">¿Qué es?</a></li>
+
+        <li><a href="#representacion">Representación</a></li>
+
+        <li><a href="#complejidad">Complejidad</a></li>
+
+        <li><a href="#python">Python</a></li>
+
+    </ul>
+
+</nav>
+
+<main class="container">
+
+<section class="card" id="indice">
+
+<h2>Índice</h2>
+
+<ol>
+
+<li>¿Qué es un Algoritmo?</li>
+
+<li>Características de un Algoritmo</li>
+
+<li>Entrada, Proceso y Salida</li>
+
+<li>Pseudocódigo</li>
+
+<li>Diagramas de Flujo</li>
+
+<li>Complejidad Algorítmica</li>
+
+<li>Ejemplos en Python</li>
+
+<li>Dato Interesante</li>
+
+<li>Referencias</li>
+
+</ol>
+
+</section>
+
+<section class="card" id="que-es">
+
+<h2>
+¿Qué es un Algoritmo?
+</h2>
+
+<p>
+
+Un algoritmo es una secuencia finita y ordenada de
+pasos que permiten resolver un problema o realizar
+una tarea determinada.
+
+</p>
+
+<p>
+
+Antes de escribir cualquier programa, es necesario
+pensar primero en el algoritmo, es decir, en la
+lógica que va a resolver el problema, sin importar
+todavía en qué lenguaje de programación se va a
+implementar.
+
+</p>
+
+<p>
+
+Según Joyanes Aguilar (2020), el algoritmo es
+independiente tanto del lenguaje de programación
+en que se exprese como de la computadora que lo
+ejecute.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Características de un Algoritmo
+</h2>
+
+<ul>
+
+<li><strong>Finito:</strong> debe terminar después de un número determinado de pasos.</li>
+
+<li><strong>Definido:</strong> cada paso debe estar claramente especificado, sin ambigüedades.</li>
+
+<li><strong>Ordenado:</strong> los pasos deben seguir una secuencia lógica.</li>
+
+<li><strong>Preciso:</strong> debe indicar exactamente el orden de realización de cada paso.</li>
+
+<li><strong>General:</strong> debe poder aplicarse a un conjunto de datos de entrada, no solo a un caso particular.</li>
+
+</ul>
+
+</section>
+
+<section class="card">
+
+<h2>
+Entrada, Proceso y Salida
+</h2>
+
+<p>
+
+Todo algoritmo puede describirse mediante tres
+elementos básicos:
+
+</p>
+
+<h3>
+Entrada
+</h3>
+
+<p>
+
+Los datos que el algoritmo necesita para funcionar.
+Por ejemplo, una lista de números.
+
+</p>
+
+<h3>
+Proceso
+</h3>
+
+<p>
+
+El conjunto de pasos u operaciones que se aplican
+sobre los datos de entrada.
+
+</p>
+
+<h3>
+Salida
+</h3>
+
+<p>
+
+El resultado que se obtiene después de aplicar el
+proceso a los datos de entrada.
+
+</p>
+
+</section>
+
+<section class="card" id="representacion">
+
+<h2>
+Pseudocódigo
+</h2>
+
+<p>
+
+El pseudocódigo es una forma de describir un
+algoritmo utilizando un lenguaje similar al humano,
+combinado con estructuras propias de la
+programación, sin seguir la sintaxis estricta de
+ningún lenguaje en particular.
+
+</p>
+
+<pre>
+Inicio
+    Leer numero1, numero2
+    suma = numero1 + numero2
+    Escribir suma
+Fin
+</pre>
+
+<p>
+
+Su principal ventaja es que permite diseñar la
+lógica de un programa sin preocuparse todavía por
+los detalles de sintaxis de un lenguaje específico.
+
+</p>
+
+<h2>
+Diagramas de Flujo
+</h2>
+
+<p>
+
+Un diagrama de flujo es una representación gráfica
+de un algoritmo, en la que se utilizan símbolos
+estandarizados para indicar el inicio, el fin, los
+procesos, las decisiones y el flujo de ejecución.
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Símbolo</th>
+
+<th>Significado</th>
+
+</tr>
+
+<tr>
+
+<td>Óvalo</td>
+
+<td>Inicio o fin del algoritmo</td>
+
+</tr>
+
+<tr>
+
+<td>Rectángulo</td>
+
+<td>Proceso u operación</td>
+
+</tr>
+
+<tr>
+
+<td>Rombo</td>
+
+<td>Decisión o condición</td>
+
+</tr>
+
+<tr>
+
+<td>Paralelogramo</td>
+
+<td>Entrada o salida de datos</td>
+
+</tr>
+
+<tr>
+
+<td>Flecha</td>
+
+<td>Dirección del flujo</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section class="card" id="complejidad">
+
+<h2>
+Complejidad Algorítmica
+</h2>
+
+<p>
+
+La complejidad de un algoritmo mide de forma
+aproximada cuántos recursos (principalmente tiempo)
+necesita para resolver un problema a medida que
+crece el tamaño de los datos de entrada.
+
+</p>
+
+<h3>
+Notación Big O
+</h3>
+
+<p>
+
+Es la forma más común de expresar la complejidad de
+un algoritmo. Indica cómo crece el tiempo de
+ejecución en el peor de los casos.
+
+</p>
+
+<ul>
+
+<li><strong>O(1):</strong> tiempo constante, no depende del tamaño de la entrada.</li>
+
+<li><strong>O(n):</strong> tiempo lineal, crece proporcionalmente al tamaño de la entrada.</li>
+
+<li><strong>O(n²):</strong> tiempo cuadrático, común en algoritmos con bucles anidados.</li>
+
+<li><strong>O(log n):</strong> tiempo logarítmico, típico de algoritmos de búsqueda eficientes.</li>
+
+</ul>
+
+<p>
+
+Comprender la complejidad ayuda a elegir el
+algoritmo más adecuado, especialmente cuando se
+trabaja con grandes cantidades de datos.
+
+</p>
+
+</section>
+
+<section class="card" id="python">
+
+<h2>
+Ejemplos en Python
+</h2>
+
+<h3>
+Calcular el promedio de una lista
+</h3>
+
+<pre>
+numeros = [10, 20, 30, 40]
+
+suma = sum(numeros)
+promedio = suma / len(numeros)
+
+print("Promedio:", promedio)
+</pre>
+
+<h3>
+Buscar un número en una lista
+</h3>
+
+<pre>
+numeros = [4, 8, 15, 16, 23, 42]
+buscado = 15
+
+if buscado in numeros:
+    print("El número fue encontrado")
+else:
+    print("El número no está en la lista")
+</pre>
+
+<h3>
+Ordenar una lista
+</h3>
+
+<pre>
+numeros = [5, 2, 9, 1, 7]
+
+numeros_ordenados = sorted(numeros)
+
+print("Lista original:", numeros)
+print("Lista ordenada:", numeros_ordenados)
+</pre>
+
+<h3>
+Encontrar el mayor elemento
+</h3>
+
+<pre>
+numeros = [3, 8, 2, 19, 6]
+
+mayor = max(numeros)
+
+print("El mayor número es:", mayor)
+</pre>
+
+<p>
+
+Cada uno de estos ejemplos representa un algoritmo
+simple: primero se piensa en los pasos (entrada,
+proceso, salida) y luego se traduce esa lógica al
+lenguaje Python.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Dato Interesante
+</h2>
+
+<p>
+
+La palabra "algoritmo" proviene del nombre del
+matemático persa Al-Juarismi, quien en el siglo IX
+escribió tratados sobre métodos sistemáticos para
+resolver ecuaciones, sentando las bases de lo que
+hoy conocemos como algoritmos.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Referencias
+</h2>
+
+<ul>
+
+<li>
+
+Joyanes Aguilar, L. (2020).
+<em>
+Fundamentos de programación: Algoritmos,
+estructura de datos y objetos
+</em>
+(5.ª ed.). McGraw-Hill.
+
+</li>
+
+</ul>
+
+</section>
+
+<section class="card" style="text-align:center;">
+
+<h2>
+Fin del Artículo
+</h2>
+
+<p>
+
+Gracias por leer este artículo sobre algoritmos.
+
+</p>
+
+<a href="../index.html">
+
+<button>
+Volver al Inicio
+</button>
+
+</a>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+© 2026 Joseph Torres Condezo
+</p>
+
+<p>
+Blog Personal de Tecnología, Programación y Ciberseguridad
+</p>
+
+</footer>
+
+</body>
+</html>

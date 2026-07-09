@@ -1,0 +1,382 @@
+/* =========================
+   FUENTES
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =========================
+   VARIABLES / TOKENS
+========================= */
+:root{
+    --bg:#f4f6f9;
+    --surface:#ffffff;
+    --ink:#0d1117;
+    --ink-soft:#161b22;
+    --text:#24292f;
+    --text-muted:#57606a;
+    --border:#d0d7de;
+
+    --accent:#1f6feb;
+    --accent-dark:#1557b0;
+
+    --c-prog:#1f6feb;
+    --c-web:#2da44e;
+    --c-sec:#cf222e;
+    --c-ia:#8250df;
+    --c-proj:#bf8700;
+
+    --mono:'JetBrains Mono', Consolas, monospace;
+    --sans:'Inter', Arial, Helvetica, sans-serif;
+
+    --radius:12px;
+    --shadow:0 3px 10px rgba(0,0,0,0.08);
+    --shadow-hover:0 10px 24px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.7;
+}
+@media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+header{
+    background:var(--ink);
+    color:white;
+    text-align:center;
+    padding:60px 20px 50px;
+    border-bottom:1px solid #21262d;
+}
+.filepath{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:0.8rem;
+    color:#8b949e;
+    background:#161b22;
+    border:1px solid #30363d;
+    padding:6px 14px;
+    border-radius:20px;
+    margin-bottom:22px;
+}
+.filepath::before{
+    content:"$ ";
+    color:#3fb950;
+}
+header h1{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:2.6rem;
+    line-height:1.3;
+    max-width:900px;
+    margin:0 auto 18px;
+    letter-spacing:-0.01em;
+}
+header p{
+    color:#c9d1d9;
+    font-size:1.05rem;
+}
+
+/* Chips de categorías bajo el h1 del index */
+.badges{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:22px;
+}
+.badge{
+    font-family:var(--mono);
+    font-size:0.8rem;
+    padding:6px 14px;
+    border-radius:20px;
+    border:1px solid #30363d;
+    color:#c9d1d9;
+    background:#161b22;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav{
+    background:var(--ink-soft);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid #30363d;
+}
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+nav li{
+    padding:16px 4px;
+}
+nav a{
+    font-family:var(--mono);
+    font-size:0.85rem;
+    color:#c9d1d9;
+    text-decoration:none;
+    font-weight:500;
+    padding:6px 14px;
+    border-radius:6px;
+    transition:0.2s;
+}
+nav a::before{
+    content:"$ ";
+    color:#3fb950;
+}
+nav a:hover{
+    color:white;
+    background:#21262d;
+}
+
+/* =========================
+   MAIN
+========================= */
+main{
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+.card{
+    background:var(--surface);
+    padding:32px;
+    margin-bottom:25px;
+    border-radius:var(--radius);
+    border-left:4px solid var(--border);
+    box-shadow:var(--shadow);
+    transition:box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card:hover{
+    box-shadow:var(--shadow-hover);
+    transform:translateY(-2px);
+}
+.card h2{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:1.5rem;
+    color:var(--ink);
+    margin-bottom:20px;
+}
+.card h3{
+    font-family:var(--sans);
+    font-weight:700;
+    color:var(--accent);
+    margin-top:22px;
+    margin-bottom:10px;
+}
+.card h4{
+    color:var(--ink);
+    margin-top:15px;
+    margin-bottom:10px;
+}
+.card p{
+    margin-bottom:15px;
+}
+.card ul,
+.card ol{
+    margin-left:30px;
+    margin-bottom:20px;
+}
+.card li{
+    margin-bottom:4px;
+}
+
+/* Etiqueta de categoría, tipo label de GitHub */
+.tag{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:0.72rem;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:20px;
+    margin-bottom:14px;
+}
+
+/* Colores por categoría (borde izquierdo + etiqueta) */
+.card-prog{ border-left-color:var(--c-prog); }
+.card-prog .tag{ color:var(--c-prog); background:rgba(31,111,235,0.12); }
+
+.card-web{ border-left-color:var(--c-web); }
+.card-web .tag{ color:var(--c-web); background:rgba(45,164,78,0.12); }
+
+.card-sec{ border-left-color:var(--c-sec); }
+.card-sec .tag{ color:var(--c-sec); background:rgba(207,34,46,0.12); }
+
+.card-ia{ border-left-color:var(--c-ia); }
+.card-ia .tag{ color:var(--c-ia); background:rgba(130,80,223,0.12); }
+
+.card-proj{ border-left-color:var(--c-proj); }
+.card-proj .tag{ color:var(--c-proj); background:rgba(191,135,0,0.12); }
+
+/* =========================
+   TABLAS
+========================= */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    margin-bottom:20px;
+    font-size:0.95rem;
+}
+th{
+    background:var(--ink);
+    color:white;
+    font-family:var(--mono);
+    font-weight:500;
+}
+th,
+td{
+    border:1px solid var(--border);
+    padding:12px;
+    text-align:left;
+}
+tr:nth-child(even) td{
+    background:#f6f8fa;
+}
+
+/* =========================
+   BLOQUES DE CÓDIGO
+========================= */
+pre{
+    background:var(--ink);
+    color:#79c0ff;
+    padding:18px;
+    border-radius:10px;
+    overflow-x:auto;
+    margin-top:15px;
+    margin-bottom:15px;
+    font-family:var(--mono);
+    font-size:0.88rem;
+    border-left:3px solid var(--accent);
+    position:relative;
+}
+pre::before{
+    content:"›";
+    color:#3fb950;
+    margin-right:8px;
+}
+code{
+    font-family:var(--mono);
+    background:#eef1f4;
+    padding:2px 6px;
+    border-radius:4px;
+    font-size:0.9em;
+}
+pre code{
+    background:none;
+    padding:0;
+}
+
+/* =========================
+   BOTONES
+========================= */
+button{
+    background:var(--accent);
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-family:var(--mono);
+    font-size:0.9rem;
+    font-weight:500;
+    transition:0.2s;
+}
+button::before{
+    content:"› ";
+}
+button:hover{
+    background:var(--accent-dark);
+    transform:translateY(-1px);
+}
+
+/* =========================
+   ENLACES
+========================= */
+a{
+    color:var(--accent);
+}
+a:hover{
+    color:var(--accent-dark);
+}
+a:focus-visible,
+button:focus-visible,
+nav a:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:2px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+    background:var(--ink);
+    color:#8b949e;
+    text-align:center;
+    padding:28px;
+    margin-top:30px;
+    font-family:var(--mono);
+    font-size:0.85rem;
+}
+footer p:first-child{
+    color:#c9d1d9;
+    margin-bottom:6px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:768px){
+    header{
+        padding:44px 16px 36px;
+    }
+    header h1{
+        font-size:1.7rem;
+    }
+    nav ul{
+        flex-direction:column;
+        text-align:center;
+        gap:0;
+    }
+    nav li{
+        padding:10px;
+    }
+    .card{
+        padding:20px;
+    }
+}

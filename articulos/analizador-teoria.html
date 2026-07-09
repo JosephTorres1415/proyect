@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Fundamentos para Construir un Analizador
+        de Archivos Sospechosos
+    </title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <p class="filepath">cat articulos/analizador-teoria.html</p>
+
+    <h1>
+        Fundamentos Teóricos:
+        Cómo Construir un Analizador
+        Básico de Archivos Sospechosos
+    </h1>
+
+    <p>
+        Los conceptos de Python y ciberseguridad necesarios
+        para entender y construir esta clase de herramientas.
+    </p>
+
+</header>
+
+<nav>
+
+    <ul>
+
+        <li><a href="#indice">Índice</a></li>
+
+        <li><a href="#analisis-estatico">Análisis Estático</a></li>
+
+        <li><a href="#hash">Hashes</a></li>
+
+        <li><a href="#ioc">Indicadores</a></li>
+
+        <li><a href="#proyecto">El Proyecto</a></li>
+
+    </ul>
+
+</nav>
+
+<main class="container">
+
+<section class="card" id="indice">
+
+<h2>Índice</h2>
+
+<ol>
+
+<li>¿Qué es el Análisis Estático de un Archivo?</li>
+
+<li>Hashes y la Huella Digital de un Archivo</li>
+
+<li>Extracción de Cadenas de Texto (Strings)</li>
+
+<li>Expresiones Regulares (Regex)</li>
+
+<li>Indicadores de Compromiso (IOC)</li>
+
+<li>Manejo de Archivos en Python</li>
+
+<li>Generación de Reportes en HTML desde Python</li>
+
+<li>Niveles de Riesgo</li>
+
+<li>Sobre el Proyecto</li>
+
+<li>Dato Interesante</li>
+
+<li>Referencias</li>
+
+</ol>
+
+</section>
+
+<section class="card" id="analisis-estatico">
+
+<h2>
+¿Qué es el Análisis Estático de un Archivo?
+</h2>
+
+<p>
+
+El análisis estático consiste en examinar un archivo
+<strong>sin ejecutarlo</strong>. En lugar de correr el
+programa para ver qué hace, se estudia su contenido
+"desde afuera": su tamaño, su tipo, el texto que
+contiene y ciertos patrones que puedan indicar un
+comportamiento sospechoso.
+
+</p>
+
+<p>
+
+Este enfoque es el primer paso natural cuando se
+analiza un archivo desconocido, ya que es seguro: al
+no ejecutarlo, se evita el riesgo de infectar el
+equipo o activar código malicioso.
+
+</p>
+
+<h3>
+¿Qué se suele revisar en un análisis estático?
+</h3>
+
+<ul>
+
+<li>Información básica: nombre, extensión, tamaño, fechas.</li>
+
+<li>Una huella digital (hash) que identifica de forma única al archivo.</li>
+
+<li>El texto legible que contiene el archivo por dentro.</li>
+
+<li>Palabras clave, URLs o direcciones IP relacionadas con actividad maliciosa.</li>
+
+</ul>
+
+</section>
+
+<section class="card" id="hash">
+
+<h2>
+Hashes y la Huella Digital de un Archivo
+</h2>
+
+<p>
+
+Un hash es el resultado de aplicar una función
+matemática a un archivo, que produce una cadena de
+caracteres de longitud fija. Esta cadena funciona
+como una "huella digital": dos archivos idénticos
+siempre producen el mismo hash, y con cambiar un solo
+byte del archivo, el hash resultante cambia por
+completo.
+
+</p>
+
+<h3>
+¿Para qué sirve en ciberseguridad?
+</h3>
+
+<ul>
+
+<li>Verificar que un archivo no ha sido modificado.</li>
+
+<li>Identificar un archivo de forma única, sin necesidad de leer todo su contenido cada vez.</li>
+
+<li>Comparar un archivo contra bases de datos conocidas de amenazas.</li>
+
+</ul>
+
+<h3>
+SHA-256
+</h3>
+
+<p>
+
+SHA-256 es uno de los algoritmos de hash más
+utilizados actualmente. Siempre genera una cadena de
+64 caracteres en hexadecimal, sin importar si el
+archivo pesa unos cuantos bytes o varios gigabytes.
+
+</p>
+
+<pre>
+import hashlib
+
+texto = "archivo de prueba"
+hash_resultado = hashlib.sha256(texto.encode())
+
+print(hash_resultado.hexdigest())
+</pre>
+
+<p>
+
+Para archivos grandes, en vez de leer todo el
+contenido de una sola vez, es común leerlos por
+bloques (por ejemplo, de 4096 bytes) e ir
+actualizando el hash progresivamente, para no
+consumir demasiada memoria.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Extracción de Cadenas de Texto (Strings)
+</h2>
+
+<p>
+
+Muchos archivos, incluso los binarios (ejecutables,
+por ejemplo), contienen fragmentos de texto legible
+en su interior: mensajes de error, rutas de archivos,
+nombres de funciones, URLs, etc. Buscar y extraer ese
+texto es una técnica muy común en análisis estático,
+inspirada en la herramienta <code>strings</code> de
+Linux.
+
+</p>
+
+<p>
+
+La idea general es recorrer el archivo byte por byte
+y quedarse únicamente con las secuencias de caracteres
+imprimibles que tengan una longitud mínima (por
+ejemplo, 4 caracteres), descartando el resto.
+
+</p>
+
+<pre>
+texto_ejemplo = "Hola\x00\x01Mundo123"
+
+caracteres_legibles = "".join(
+    caracter for caracter in texto_ejemplo if caracter.isprintable()
+)
+
+print(caracteres_legibles)
+</pre>
+
+</section>
+
+<section class="card">
+
+<h2>
+Expresiones Regulares (Regex)
+</h2>
+
+<p>
+
+Una expresión regular es un patrón que describe cómo
+debe verse un texto, y permite buscar coincidencias
+dentro de una cadena mucho más larga. En Python se
+utilizan a través del módulo <code>re</code>.
+
+</p>
+
+<h3>
+Ejemplo: encontrar todas las palabras que empiezan con mayúscula
+</h3>
+
+<pre>
+import re
+
+texto = "Python es un Lenguaje muy Usado en Ciberseguridad"
+
+patron = re.compile(r"\b[A-Z][a-z]*\b")
+coincidencias = patron.findall(texto)
+
+print(coincidencias)
+</pre>
+
+<p>
+
+Este mismo principio permite construir patrones para
+detectar, por ejemplo, direcciones URL (secuencias que
+comienzan con <code>http://</code> o
+<code>https://</code>) o direcciones IP (cuatro grupos
+de números separados por puntos), simplemente
+cambiando el patrón utilizado.
+
+</p>
+
+</section>
+
+<section class="card" id="ioc">
+
+<h2>
+Indicadores de Compromiso (IOC)
+</h2>
+
+<p>
+
+Un Indicador de Compromiso, o IOC (por sus siglas en
+inglés, <em>Indicator of Compromise</em>), es
+cualquier dato que sugiere que un sistema o un archivo
+podría estar comprometido o ser malicioso.
+
+</p>
+
+<h3>
+Ejemplos comunes de IOC
+</h3>
+
+<ul>
+
+<li>Hashes de archivos maliciosos conocidos.</li>
+
+<li>Direcciones IP asociadas a servidores de atacantes.</li>
+
+<li>URLs utilizadas para descargar cargas maliciosas.</li>
+
+<li>Nombres de comandos o herramientas del sistema usados de forma sospechosa (por ejemplo, intérpretes de comandos o utilidades de administración).</li>
+
+</ul>
+
+<p>
+
+En un proyecto educativo, se puede construir una
+lista propia de palabras clave consideradas
+sospechosas, y luego revisar si alguna de ellas
+aparece dentro del texto extraído de un archivo. Cuantos
+más indicadores se encuentren, mayor es la sospecha
+de que el archivo podría ser malicioso.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Manejo de Archivos en Python
+</h2>
+
+<p>
+
+Para poder analizar un archivo primero es necesario
+leerlo desde el disco. Python permite abrir archivos
+en distintos modos: como texto o como datos binarios.
+
+</p>
+
+<h3>
+Lectura en modo texto
+</h3>
+
+<pre>
+with open("ejemplo.txt", "r") as archivo:
+    contenido = archivo.read()
+
+print(contenido)
+</pre>
+
+<h3>
+Lectura en modo binario
+</h3>
+
+<p>
+
+Cuando no se sabe si un archivo contiene texto plano
+(como ocurre con muchos archivos ejecutables o
+comprimidos), se abre en modo binario, representando
+su contenido como una secuencia de bytes.
+
+</p>
+
+<pre>
+with open("ejemplo.bin", "rb") as archivo:
+    datos = archivo.read()
+
+print(len(datos), "bytes leídos")
+</pre>
+
+<h3>
+Información básica de un archivo
+</h3>
+
+<p>
+
+El módulo <code>os</code> permite obtener datos como
+el tamaño de un archivo o la fecha de su última
+modificación, útiles para construir un reporte.
+
+</p>
+
+<pre>
+import os
+
+info = os.stat("ejemplo.txt")
+
+print("Tamaño en bytes:", info.st_size)
+</pre>
+
+</section>
+
+<section class="card">
+
+<h2>
+Generación de Reportes en HTML desde Python
+</h2>
+
+<p>
+
+Un programa en Python puede construir directamente el
+contenido de una página HTML, combinando texto fijo
+(la estructura de la página) con datos calculados
+durante la ejecución (como un resultado o un hash),
+mediante <em>f-strings</em>.
+
+</p>
+
+<pre>
+nombre_archivo = "prueba.txt"
+riesgo = "BAJO"
+
+html = f"""
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Reporte de {nombre_archivo}&lt;/h1&gt;
+    &lt;p&gt;Nivel de riesgo: {riesgo}&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+"""
+
+with open("reporte.html", "w") as archivo:
+    archivo.write(html)
+</pre>
+
+<p>
+
+De esta manera, un script puede generar automáticamente
+una página web con los resultados de su análisis, sin
+necesidad de crear el archivo HTML manualmente.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Niveles de Riesgo
+</h2>
+
+<p>
+
+Una forma sencilla de clasificar un resultado es
+contar cuántos indicadores sospechosos se encontraron
+y, según ese número, asignar una categoría.
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Cantidad de Indicios</th>
+
+<th>Nivel de Riesgo</th>
+
+</tr>
+
+<tr>
+
+<td>0</td>
+
+<td>Bajo</td>
+
+</tr>
+
+<tr>
+
+<td>1 a 2</td>
+
+<td>Medio</td>
+
+</tr>
+
+<tr>
+
+<td>3 o más</td>
+
+<td>Alto</td>
+
+</tr>
+
+</table>
+
+<p>
+
+Es importante recalcar que este tipo de clasificación
+es una simplificación educativa. Un análisis
+profesional real combina muchas más señales, y
+herramientas especializadas para llegar a una
+conclusión confiable.
+
+</p>
+
+</section>
+
+<section class="card" id="proyecto">
+
+<h2>
+Sobre el Proyecto
+</h2>
+
+<p>
+
+Uniendo todos los conceptos anteriores es posible
+construir un <strong>analizador básico de archivos
+sospechosos</strong>: un script que recibe un archivo,
+calcula su hash SHA-256, extrae el texto legible que
+contiene, busca palabras clave, URLs o direcciones IP
+sospechosas dentro de ese texto, y con base en la
+cantidad de hallazgos asigna un nivel de riesgo. Al
+final, genera tanto un resumen en la terminal como un
+reporte visual en HTML.
+
+</p>
+
+<h3>
+Qué no es este tipo de proyecto
+</h3>
+
+<p>
+
+Es fundamental ser claro sobre sus límites: esta clase
+de herramienta no es un antivirus ni reemplaza un
+análisis profesional. No ejecuta el archivo analizado
+(por eso es segura de usar), solo lee su contenido y
+busca coincidencias de texto. Es un proyecto educativo,
+pensado para practicar y aprender, no para tomar
+decisiones de seguridad reales.
+
+</p>
+
+<h3>
+Posibles mejoras futuras
+</h3>
+
+<ul>
+
+<li>Analizar todos los archivos de una carpeta de forma automática.</li>
+
+<li>Incorporar un modelo básico de aprendizaje automático en lugar de solo contar palabras clave.</li>
+
+<li>Comparar el hash obtenido contra bases de datos públicas de amenazas conocidas.</li>
+
+</ul>
+
+</section>
+
+<section class="card">
+
+<h2>
+Dato Interesante
+</h2>
+
+<p>
+
+El algoritmo SHA-256 forma parte de la familia SHA-2,
+diseñada por la Agencia de Seguridad Nacional de
+Estados Unidos (NSA) y publicada en 2001. Hoy en día
+es uno de los algoritmos de hash más utilizados en el
+mundo, incluyendo su papel fundamental en la
+tecnología detrás de Bitcoin.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Referencias
+</h2>
+
+<ul>
+
+<li>
+
+Joyanes Aguilar, L. (2020).
+<em>
+Fundamentos de programación: Algoritmos,
+estructura de datos y objetos
+</em>
+(5.ª ed.). McGraw-Hill.
+
+</li>
+
+<li>
+
+Documentación oficial de Python:
+<em>
+docs.python.org
+</em>
+(módulos <code>hashlib</code>, <code>re</code> y
+<code>os</code>).
+
+</li>
+
+</ul>
+
+</section>
+
+<section class="card" style="text-align:center;">
+
+<h2>
+Fin del Artículo
+</h2>
+
+<p>
+
+Gracias por leer sobre los fundamentos de este
+proyecto de ciberseguridad.
+
+</p>
+
+<a href="../index.html">
+
+<button>
+Volver al Inicio
+</button>
+
+</a>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+© 2026 Joseph Torres Condezo
+</p>
+
+<p>
+Blog Personal de Tecnología, Programación y Ciberseguridad
+</p>
+
+</footer>
+
+</body>
+</html>

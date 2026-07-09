@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        HTML, CSS y JavaScript
+    </title>
+
+    <link rel="stylesheet"
+          href="../css/style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <p class="filepath">cat articulos/html-css-js.html</p>
+
+    <h1>
+        HTML, CSS y JavaScript:
+        Fundamentos del Desarrollo Web
+    </h1>
+
+    <p>
+        Apuntes de estudio centrados en la estructura (HTML)
+        y el diseño visual (CSS) de una página web, con una
+        introducción a JavaScript y al DOM.
+    </p>
+
+</header>
+
+<nav>
+
+    <ul>
+
+        <li><a href="#indice">Índice</a></li>
+
+        <li><a href="#html">HTML</a></li>
+
+        <li><a href="#css">CSS</a></li>
+
+        <li><a href="#javascript">JavaScript</a></li>
+
+    </ul>
+
+</nav>
+
+<main class="container">
+
+<section class="card" id="indice">
+
+<h2>Índice</h2>
+
+<ol>
+
+<li>¿Qué es el Desarrollo Web?</li>
+
+<li>HTML: Estructura de una Página</li>
+
+<li>Etiquetas HTML más Utilizadas</li>
+
+<li>Etiquetas Semánticas</li>
+
+<li>Formularios en HTML</li>
+
+<li>Tablas en HTML</li>
+
+<li>CSS: Sintaxis y Formas de Aplicarlo</li>
+
+<li>Selectores CSS</li>
+
+<li>El Modelo de Caja (Box Model)</li>
+
+<li>Flexbox</li>
+
+<li>CSS Grid</li>
+
+<li>Pseudoclases y Pseudoelementos</li>
+
+<li>Responsive Design</li>
+
+<li>JavaScript: Fundamentos</li>
+
+<li>El DOM</li>
+
+<li>Dato Interesante</li>
+
+<li>Referencias</li>
+
+</ol>
+
+</section>
+
+<section class="card" id="html">
+
+<h2>
+¿Qué es el Desarrollo Web?
+</h2>
+
+<p>
+
+El desarrollo web es el proceso de crear sitios y
+aplicaciones que funcionan a través de un navegador.
+Se suele dividir en dos grandes partes:
+
+</p>
+
+<ul>
+
+<li><strong>Frontend:</strong> todo lo que el usuario ve e interactúa directamente (HTML, CSS, JavaScript).</li>
+
+<li><strong>Backend:</strong> la lógica del servidor, bases de datos y procesamiento que ocurre "detrás de escena".</li>
+
+</ul>
+
+<p>
+
+Este artículo se enfoca en el frontend, y en
+particular en los dos pilares que definen el
+contenido y la apariencia de una página: HTML y CSS.
+
+</p>
+
+<h2>
+HTML: Estructura de una Página
+</h2>
+
+<p>
+
+HTML (HyperText Markup Language) es el lenguaje que
+define la estructura y el contenido de una página web.
+No es un lenguaje de programación, sino un lenguaje de
+marcado: se basa en etiquetas que envuelven al
+contenido para indicarle al navegador qué es cada
+cosa (un título, un párrafo, una imagen, una lista).
+
+</p>
+
+<h3>
+Estructura básica de un documento HTML
+</h3>
+
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi Página&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Hola Mundo&lt;/h1&gt;
+    &lt;p&gt;Este es mi primer párrafo.&lt;/p&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+<h3>
+Explicación de cada parte
+</h3>
+
+<ul>
+
+<li><strong>&lt;!DOCTYPE html&gt;:</strong> le indica al navegador que el documento usa HTML5.</li>
+
+<li><strong>&lt;html&gt;:</strong> elemento raíz que envuelve todo el documento.</li>
+
+<li><strong>&lt;head&gt;:</strong> contiene metadatos, el título de la pestaña, y enlaces a CSS o fuentes; no se muestra directamente en la página.</li>
+
+<li><strong>&lt;body&gt;:</strong> contiene todo el contenido visible de la página.</li>
+
+</ul>
+
+<h3>
+Atributos
+</h3>
+
+<p>
+
+Las etiquetas pueden llevar atributos, que agregan
+información adicional. Se escriben dentro de la
+etiqueta de apertura, como pares
+<code>nombre="valor"</code>.
+
+</p>
+
+<pre>
+&lt;a href="https://ejemplo.com" target="_blank"&gt;
+    Visitar sitio
+&lt;/a&gt;
+</pre>
+
+</section>
+
+<section class="card">
+
+<h2>
+Etiquetas HTML más Utilizadas
+</h2>
+
+<h3>
+Texto
+</h3>
+
+<pre>
+&lt;h1&gt;Título principal&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;p&gt;Un párrafo de texto.&lt;/p&gt;
+&lt;strong&gt;Texto en negrita&lt;/strong&gt;
+&lt;em&gt;Texto en cursiva&lt;/em&gt;
+&lt;br&gt; &lt;!-- salto de línea --&gt;
+</pre>
+
+<p>
+
+HTML define seis niveles de encabezado, de
+<code>&lt;h1&gt;</code> (el más importante) hasta
+<code>&lt;h6&gt;</code> (el menos importante). Se
+recomienda usar un solo <code>&lt;h1&gt;</code> por
+página y mantener el orden jerárquico sin saltarse
+niveles.
+
+</p>
+
+<h3>
+Listas
+</h3>
+
+<pre>
+&lt;ul&gt;
+    &lt;li&gt;Elemento sin orden&lt;/li&gt;
+    &lt;li&gt;Otro elemento&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;Primer paso&lt;/li&gt;
+    &lt;li&gt;Segundo paso&lt;/li&gt;
+&lt;/ol&gt;
+</pre>
+
+<h3>
+Enlaces e imágenes
+</h3>
+
+<pre>
+&lt;a href="pagina.html"&gt;Ir a otra página&lt;/a&gt;
+
+&lt;img src="foto.jpg" alt="Descripción de la imagen"&gt;
+</pre>
+
+<p>
+
+El atributo <code>alt</code> es obligatorio por
+buenas prácticas: describe la imagen para personas
+que usan lectores de pantalla y se muestra si la
+imagen no llega a cargar.
+
+</p>
+
+<h3>
+Contenedores genéricos
+</h3>
+
+<pre>
+&lt;div&gt;
+    Bloque genérico (ocupa toda la línea)
+&lt;/div&gt;
+
+&lt;span&gt;
+    Texto en línea (no rompe el flujo)
+&lt;/span&gt;
+</pre>
+
+</section>
+
+<section class="card">
+
+<h2>
+Etiquetas Semánticas
+</h2>
+
+<p>
+
+Además de <code>&lt;div&gt;</code> y
+<code>&lt;span&gt;</code>, HTML5 incluye etiquetas que
+describen el significado de cada sección de la página,
+no solo su apariencia. Esto mejora la accesibilidad y
+el posicionamiento en buscadores (SEO).
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Etiqueta</th>
+
+<th>Uso</th>
+
+</tr>
+
+<tr>
+
+<td><code>&lt;header&gt;</code></td>
+
+<td>Encabezado de la página o de una sección</td>
+
+</tr>
+
+<tr>
+
+<td><code>&lt;nav&gt;</code></td>
+
+<td>Bloque de enlaces de navegación</td>
+
+</tr>
+
+<tr>
+
+<td><code>&lt;main&gt;</code></td>
+
+<td>Contenido principal de la página (uno solo por documento)</td>
+
+</tr>
+
+<tr>
+
+<td><code>&lt;section&gt;</code></td>
+
+<td>Agrupa contenido relacionado dentro de un tema</td>
+
+</tr>
+
+<tr>
+
+<td><code>&lt;article&gt;</code></td>
+
+<td>Contenido independiente y reutilizable (una publicación, una noticia)</td>
+
+</tr>
+
+<tr>
+
+<td><code>&lt;aside&gt;</code></td>
+
+<td>Contenido secundario, como una barra lateral</td>
+
+</tr>
+
+<tr>
+
+<td><code>&lt;footer&gt;</code></td>
+
+<td>Pie de página o de una sección</td>
+
+</tr>
+
+</table>
+
+<pre>
+&lt;header&gt;
+    &lt;h1&gt;Mi Blog&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+    &lt;a href="#inicio"&gt;Inicio&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Título del artículo&lt;/h2&gt;
+        &lt;p&gt;Contenido del artículo...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;© 2026&lt;/p&gt;
+&lt;/footer&gt;
+</pre>
+
+</section>
+
+<section class="card">
+
+<h2>
+Formularios en HTML
+</h2>
+
+<p>
+
+Los formularios permiten que el usuario envíe
+información: un texto, una selección, un archivo.
+Se construyen con la etiqueta
+<code>&lt;form&gt;</code> y distintos tipos de
+<code>&lt;input&gt;</code>.
+
+</p>
+
+<pre>
+&lt;form&gt;
+
+    &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" id="nombre" name="nombre"&gt;
+
+    &lt;label for="correo"&gt;Correo:&lt;/label&gt;
+    &lt;input type="email" id="correo" name="correo"&gt;
+
+    &lt;label for="mensaje"&gt;Mensaje:&lt;/label&gt;
+    &lt;textarea id="mensaje" name="mensaje"&gt;&lt;/textarea&gt;
+
+    &lt;label for="tema"&gt;Tema:&lt;/label&gt;
+    &lt;select id="tema" name="tema"&gt;
+        &lt;option value="python"&gt;Python&lt;/option&gt;
+        &lt;option value="ciberseguridad"&gt;Ciberseguridad&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;input type="checkbox" id="acepto" name="acepto"&gt;
+    &lt;label for="acepto"&gt;Acepto los términos&lt;/label&gt;
+
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+
+&lt;/form&gt;
+</pre>
+
+<h3>
+Tipos de input más comunes
+</h3>
+
+<ul>
+
+<li><code>text</code>: texto de una línea.</li>
+
+<li><code>email</code>: valida que el formato sea un correo.</li>
+
+<li><code>password</code>: oculta el texto escrito.</li>
+
+<li><code>number</code>: solo acepta números.</li>
+
+<li><code>checkbox</code>: casilla de verificación.</li>
+
+<li><code>radio</code>: selección única entre varias opciones.</li>
+
+<li><code>date</code>: selector de fecha.</li>
+
+<li><code>submit</code>: botón que envía el formulario.</li>
+
+</ul>
+
+<p>
+
+La etiqueta <code>&lt;label&gt;</code> es importante
+por accesibilidad: conecta un texto descriptivo con su
+campo mediante el atributo <code>for</code>, que debe
+coincidir con el <code>id</code> del input.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Tablas en HTML
+</h2>
+
+<p>
+
+Las tablas se utilizan para mostrar datos organizados
+en filas y columnas.
+
+</p>
+
+<pre>
+&lt;table&gt;
+
+    &lt;tr&gt;
+        &lt;th&gt;Lenguaje&lt;/th&gt;
+        &lt;th&gt;Tipo&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;Python&lt;/td&gt;
+        &lt;td&gt;Interpretado&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+        &lt;td&gt;C++&lt;/td&gt;
+        &lt;td&gt;Compilado&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+</pre>
+
+<ul>
+
+<li><code>&lt;table&gt;</code>: contenedor de toda la tabla.</li>
+
+<li><code>&lt;tr&gt;</code>: define una fila (table row).</li>
+
+<li><code>&lt;th&gt;</code>: celda de encabezado (table header).</li>
+
+<li><code>&lt;td&gt;</code>: celda de datos (table data).</li>
+
+</ul>
+
+</section>
+
+<section class="card" id="css">
+
+<h2>
+CSS: Sintaxis y Formas de Aplicarlo
+</h2>
+
+<p>
+
+CSS (Cascading Style Sheets) es el lenguaje que define
+la apariencia visual de una página HTML: colores,
+tamaños, espaciados, tipografía y disposición de los
+elementos.
+
+</p>
+
+<h3>
+Sintaxis básica
+</h3>
+
+<pre>
+selector {
+    propiedad: valor;
+    propiedad: valor;
+}
+</pre>
+
+<pre>
+p {
+    color: #333;
+    font-size: 16px;
+}
+</pre>
+
+<h3>
+Formas de aplicar CSS
+</h3>
+
+<h4>
+1. CSS en línea (inline)
+</h4>
+
+<pre>
+&lt;p style="color: red;"&gt;Texto rojo&lt;/p&gt;
+</pre>
+
+<h4>
+2. CSS interno
+</h4>
+
+<pre>
+&lt;head&gt;
+    &lt;style&gt;
+        p {
+            color: red;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+</pre>
+
+<h4>
+3. CSS externo (recomendado)
+</h4>
+
+<pre>
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+</pre>
+
+<p>
+
+Un archivo CSS externo es la práctica recomendada,
+porque separa el contenido (HTML) del diseño (CSS) y
+permite reutilizar los mismos estilos en varias
+páginas, como se hace en este mismo blog con el
+archivo <code>style.css</code>.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Selectores CSS
+</h2>
+
+<table>
+
+<tr>
+
+<th>Selector</th>
+
+<th>Ejemplo</th>
+
+<th>Selecciona</th>
+
+</tr>
+
+<tr>
+
+<td>Etiqueta</td>
+
+<td><code>p { }</code></td>
+
+<td>Todos los &lt;p&gt;</td>
+
+</tr>
+
+<tr>
+
+<td>Clase</td>
+
+<td><code>.card { }</code></td>
+
+<td>Todo elemento con <code>class="card"</code></td>
+
+</tr>
+
+<tr>
+
+<td>ID</td>
+
+<td><code>#inicio { }</code></td>
+
+<td>El elemento con <code>id="inicio"</code></td>
+
+</tr>
+
+<tr>
+
+<td>Descendiente</td>
+
+<td><code>nav a { }</code></td>
+
+<td>Los &lt;a&gt; dentro de &lt;nav&gt;</td>
+
+</tr>
+
+<tr>
+
+<td>Universal</td>
+
+<td><code>* { }</code></td>
+
+<td>Todos los elementos</td>
+
+</tr>
+
+</table>
+
+<p>
+
+Una clase (<code>.clase</code>) puede repetirse en
+muchos elementos de la página, mientras que un ID
+(<code>#id</code>) debe ser único dentro de todo el
+documento.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+El Modelo de Caja (Box Model)
+</h2>
+
+<p>
+
+En CSS, todo elemento se representa como una caja
+rectangular formada por cuatro capas, de adentro hacia
+afuera:
+
+</p>
+
+<ul>
+
+<li><strong>content:</strong> el contenido en sí (texto, imagen).</li>
+
+<li><strong>padding:</strong> espacio interno entre el contenido y el borde.</li>
+
+<li><strong>border:</strong> el borde de la caja.</li>
+
+<li><strong>margin:</strong> espacio externo entre esta caja y las demás.</li>
+
+</ul>
+
+<pre>
+.caja {
+    width: 200px;
+    padding: 20px;
+    border: 2px solid #1f6feb;
+    margin: 10px;
+}
+</pre>
+
+<p>
+
+Por defecto, el ancho y alto que se definen solo
+aplican al contenido, y el padding y el borde se
+suman aparte. Una práctica muy común es usar:
+
+</p>
+
+<pre>
+* {
+    box-sizing: border-box;
+}
+</pre>
+
+<p>
+
+Con esto, el padding y el borde quedan incluidos
+dentro del ancho definido, lo que hace mucho más
+predecible el tamaño final de cada caja.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Flexbox
+</h2>
+
+<p>
+
+Flexbox es un sistema de CSS diseñado para organizar
+elementos en una fila o columna, distribuyendo el
+espacio disponible entre ellos de forma flexible.
+
+</p>
+
+<pre>
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+</pre>
+
+<h3>
+Propiedades principales del contenedor
+</h3>
+
+<ul>
+
+<li><code>display: flex;</code> activa flexbox.</li>
+
+<li><code>flex-direction:</code> row (fila) o column (columna).</li>
+
+<li><code>justify-content:</code> alinea los elementos en el eje principal (por ejemplo, horizontal).</li>
+
+<li><code>align-items:</code> alinea los elementos en el eje transversal (por ejemplo, vertical).</li>
+
+<li><code>gap:</code> espacio entre elementos.</li>
+
+</ul>
+
+<p>
+
+Este mismo blog utiliza flexbox para centrar los
+enlaces de la barra de navegación y para acomodar
+las etiquetas de categorías en el encabezado.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+CSS Grid
+</h2>
+
+<p>
+
+CSS Grid permite organizar elementos en una
+cuadrícula de filas y columnas, ideal para
+estructuras de página completas.
+
+</p>
+
+<pre>
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+</pre>
+
+<p>
+
+En este ejemplo, <code>1fr 1fr 1fr</code> crea tres
+columnas de igual ancho ("fr" significa fracción del
+espacio disponible). Grid es especialmente útil
+cuando se necesita controlar filas y columnas al
+mismo tiempo, mientras que Flexbox suele ser más
+sencillo para organizar elementos en una sola
+dirección.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Pseudoclases y Pseudoelementos
+</h2>
+
+<h3>
+Pseudoclases
+</h3>
+
+<p>
+
+Aplican un estilo según el estado de un elemento.
+
+</p>
+
+<pre>
+a:hover {
+    color: #1557b0;
+}
+
+button:focus {
+    outline: 2px solid blue;
+}
+
+li:first-child {
+    font-weight: bold;
+}
+</pre>
+
+<h3>
+Pseudoelementos
+</h3>
+
+<p>
+
+Permiten insertar contenido o dar estilo a una parte
+específica de un elemento, sin necesidad de agregar
+una etiqueta HTML adicional.
+
+</p>
+
+<pre>
+p::first-letter {
+    font-size: 2em;
+}
+
+.tag::before {
+    content: "# ";
+}
+</pre>
+
+</section>
+
+<section class="card">
+
+<h2>
+Responsive Design
+</h2>
+
+<p>
+
+El diseño responsivo busca que una página se vea y
+funcione bien en cualquier tamaño de pantalla, desde
+un celular hasta un monitor grande.
+
+</p>
+
+<h3>
+Media Queries
+</h3>
+
+<p>
+
+Permiten aplicar reglas de CSS distintas según el
+ancho de la pantalla.
+
+</p>
+
+<pre>
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+}
+</pre>
+
+<p>
+
+En este ejemplo, cuando la pantalla mide 768px o
+menos (como un celular o tablet), los enlaces del
+menú pasan de mostrarse en fila a mostrarse en
+columna.
+
+</p>
+
+<h3>
+Unidades relativas
+</h3>
+
+<p>
+
+Para un diseño responsivo también ayuda usar unidades
+que se adaptan, en vez de valores fijos en píxeles:
+
+</p>
+
+<ul>
+
+<li><strong>%:</strong> relativo al elemento contenedor.</li>
+
+<li><strong>vw / vh:</strong> relativo al ancho / alto de la ventana del navegador.</li>
+
+<li><strong>rem:</strong> relativo al tamaño de fuente base del documento.</li>
+
+</ul>
+
+</section>
+
+<section class="card" id="javascript">
+
+<h2>
+JavaScript: Fundamentos
+</h2>
+
+<p>
+
+Mientras que HTML define el contenido y CSS el
+diseño, JavaScript es el lenguaje que le da
+interactividad a una página: permite reaccionar a
+clics, validar formularios, mostrar u ocultar
+contenido y modificar la página después de que ya
+fue cargada.
+
+</p>
+
+<h3>
+Cómo incluirlo
+</h3>
+
+<pre>
+&lt;script src="script.js"&gt;&lt;/script&gt;
+</pre>
+
+<h3>
+Variables
+</h3>
+
+<pre>
+let nombre = "Joseph";
+const edad = 20;
+
+console.log(nombre, edad);
+</pre>
+
+<h3>
+Funciones
+</h3>
+
+<pre>
+function saludar(nombre) {
+    return "Hola, " + nombre;
+}
+
+console.log(saludar("Mundo"));
+</pre>
+
+<h3>
+Eventos
+</h3>
+
+<p>
+
+Un evento es una acción que ocurre en la página,
+como un clic o el envío de un formulario. JavaScript
+permite "escuchar" esos eventos y reaccionar a ellos.
+
+</p>
+
+<pre>
+const boton = document.querySelector("button");
+
+boton.addEventListener("click", function () {
+    alert("Botón presionado");
+});
+</pre>
+
+</section>
+
+<section class="card">
+
+<h2>
+El DOM
+</h2>
+
+<p>
+
+El DOM (Document Object Model) es la representación
+en memoria de la página HTML que el navegador
+construye a partir del documento. JavaScript utiliza
+el DOM para leer y modificar el contenido de la
+página de forma dinámica, sin necesidad de recargarla.
+
+</p>
+
+<h3>
+Seleccionar elementos
+</h3>
+
+<pre>
+const titulo = document.querySelector("h1");
+const parrafos = document.querySelectorAll("p");
+</pre>
+
+<h3>
+Modificar contenido
+</h3>
+
+<pre>
+titulo.textContent = "Nuevo título";
+titulo.style.color = "blue";
+</pre>
+
+<h3>
+Crear y agregar elementos
+</h3>
+
+<pre>
+const nuevoParrafo = document.createElement("p");
+nuevoParrafo.textContent = "Este párrafo fue creado con JavaScript";
+
+document.body.appendChild(nuevoParrafo);
+</pre>
+
+<p>
+
+Gracias al DOM, una página puede actualizarse en
+respuesta a las acciones del usuario: agregar tareas
+a una lista, mostrar mensajes de validación en un
+formulario, o cambiar de sección sin recargar toda
+la página.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Dato Interesante
+</h2>
+
+<p>
+
+JavaScript fue creado por Brendan Eich en tan solo
+10 días, en 1995, mientras trabajaba en Netscape. A
+pesar de su nombre, no tiene una relación directa con
+el lenguaje Java; el nombre fue una decisión de
+mercadeo de la época, cuando Java era muy popular.
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+Referencias
+</h2>
+
+<ul>
+
+<li>
+
+Documentación oficial de MDN Web Docs (Mozilla):
+<em>
+developer.mozilla.org
+</em>
+
+</li>
+
+<li>
+
+Joyanes Aguilar, L. (2020).
+<em>
+Fundamentos de programación: Algoritmos,
+estructura de datos y objetos
+</em>
+(5.ª ed.). McGraw-Hill.
+
+</li>
+
+</ul>
+
+</section>
+
+<section class="card" style="text-align:center;">
+
+<h2>
+Fin del Artículo
+</h2>
+
+<p>
+
+Gracias por leer este artículo sobre HTML, CSS
+y JavaScript.
+
+</p>
+
+<a href="../index.html">
+
+<button>
+Volver al Inicio
+</button>
+
+</a>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>
+© 2026 Joseph Torres Condezo
+</p>
+
+<p>
+Blog Personal de Tecnología, Programación y Ciberseguridad
+</p>
+
+</footer>
+
+</body>
+</html>
